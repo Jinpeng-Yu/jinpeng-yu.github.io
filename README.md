@@ -1,2 +1,3 @@
-# jinpengyu.github.io
-This is the source code to Jinpeng Yu's public academic website: https://jinpengyu.github.io/
+This is the official repo of Jinpeng Yu's personal website: [jinpengyu.github.io](https://jinpengyu.github.io/)
+
+This template is modified from © Haofan Wang
