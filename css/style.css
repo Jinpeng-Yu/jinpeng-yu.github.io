@@ -328,3 +328,17 @@ nav {
 .exp-wrapper .location {
   color : var(--light-gray);
 }
+/* ---- Publication enhancements (paper highlight + description) ---- */
+.section-item .venue-tag {
+  color       : var(--cardinal);
+  font-weight : 600;
+  font-style  : italic;
+  margin-left : 4px;
+}
+
+.section-item .paper-desc {
+  color       : var(--dark-gray);
+  font-size   : 14px;
+  margin-top  : 4px;
+  line-height : 1.45;
+}
