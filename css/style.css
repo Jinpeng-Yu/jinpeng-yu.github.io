@@ -1,8 +1,8 @@
 :root {
-  --cardinal        : #8C1515;
-  --very-light-gray : #F1F1F1;
+  --cardinal        : #A31F34;
+  --very-light-gray : #fafafa;
   --light-gray      : #C2C0BF;
-  --dark-gray       : #8A8B8C;
+  --dark-gray       : #8a8a8a;
 }
 
 :root {
@@ -14,7 +14,7 @@ body {
   font-family : Tahoma, 'Helvetica Neue', Ubuntu, Arial, PingFang, SimHei, sans-serif;
   font-size   : 14px;
   line-height : 1.8em;
-  color       : black;
+  color       : #1a1a1a;
   font-weight : 300;
   background  : white;
   margin-top  : 50px;
@@ -167,7 +167,7 @@ nav {
 
 .home-wrapper .social-icon li a {
   display       : block;
-  color         : black;
+  color         : #1a1a1a;
   font-size     : 12px;
   width         : 30px;
   height        : 30px;
@@ -197,14 +197,14 @@ nav {
  *------------------*/
 
 .pub-wrapper .title a {
-  color       : black;
+  color       : #1a1a1a;
   font-weight : var(--serif-weight);
   font-family : var(--serif-font);
   font-size   : 16px;
 }
 
 .pub-wrapper .title a:hover {
-  color : black;
+  color : #1a1a1a;
 }
 
 .pub-wrapper .authors {
@@ -221,7 +221,7 @@ nav {
 }
 
 .pub-wrapper .authors me {
-  color : black;
+  color : #1a1a1a;
 }
 
 .pub-wrapper .figure img {
@@ -251,7 +251,7 @@ nav {
 
 .exp-wrapper a,
 .exp-wrapper a:hover {
-  color : black;
+  color : #1a1a1a;
 }
 
 .exp-wrapper .info {
