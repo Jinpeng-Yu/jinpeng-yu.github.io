@@ -1,8 +1,18 @@
 :root {
   --cardinal        : #A31F34;
   --very-light-gray : #fafafa;
-  --light-gray      : #C2C0BF;
+  --light-gray      : #eaeaea;
   --dark-gray       : #8a8a8a;
+
+  /* Semantic aliases */
+  --text         : #1a1a1a;
+  --text-muted   : #8a8a8a;
+  --accent       : #A31F34;
+  --border       : #eaeaea;
+  --bg-alt       : #fafafa;
+  --radius-media : 6px;
+  --ease         : cubic-bezier(0.25, 0.1, 0.25, 1);
+  --t-fast       : 0.2s;
 }
 
 :root {
@@ -11,18 +21,19 @@
 }
 
 body {
-  font-family : Tahoma, 'Helvetica Neue', Ubuntu, Arial, PingFang, SimHei, sans-serif;
-  font-size   : 14px;
-  line-height : 1.8em;
-  color       : #1a1a1a;
-  font-weight : 300;
+  font-family : -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'PingFang SC', 'Microsoft YaHei';
+  font-size   : 15px;
+  line-height : 1.8;
+  color       : var(--text);
+  font-weight : 400;
   background  : white;
   margin-top  : 0;
+  -webkit-font-smoothing : antialiased;
 }
 
 body .container,
 body .container-fluid {
-  max-width : 1000px;
+  max-width : 960px;
 }
 
 body .row {
@@ -33,25 +44,34 @@ body .row {
 }
 
 a {
-  color           : var(--cardinal);
+  color           : var(--accent);
   text-decoration : none;
+  transition      : opacity var(--t-fast) var(--ease);
 }
 
 a:hover {
-  color           : var(--cardinal);
-  text-decoration : underline;
+  color           : var(--accent);
+  text-decoration : none;
+  opacity         : 0.75;
+}
+
+::selection {
+  background : var(--accent);
+  color      : #fff;
 }
 
 .section-item {
-  padding-top    : 10px;
-  padding-bottom : 10px;
+  padding-top    : 7px;
+  padding-bottom : 7px;
 }
 
 .section-title {
   font-family    : var(--serif-font);
   font-size      : 20px;
   font-weight    : var(--serif-weight);
-  padding-bottom : 10px;
+  padding-bottom : 5px;
+  margin-bottom  : 0;
+  letter-spacing : 0.01em;
 }
 
 .col-wrapper {
@@ -61,8 +81,8 @@ a:hover {
 
 .sec-wrapper {
   margin-top     : 0;
-  padding-top    : 0;
-  padding-bottom : 30px;
+  padding-top    : 26px;
+  padding-bottom : 18px;
 }
 
 /*------------------
@@ -123,11 +143,12 @@ nav {
  *------------------*/
 
 .home-wrapper {
-  padding-top : 70px;
+  padding-top : 22px;
 }
 
 .home-wrapper .picture img {
-  width : 100%;
+  width         : 100%;
+  border-radius : var(--radius-media);
 }
 
 @media (min-width: 576px) {
@@ -141,9 +162,27 @@ nav {
 }
 
 .home-wrapper .description .name {
-  font-size      : 36px;
+  font-size      : 34px;
   font-weight    : var(--serif-weight);
   font-family    : var(--serif-font);
+  letter-spacing : 0.01em;
+  margin-bottom  : 10px;
+  color          : var(--text);
+}
+
+.home-wrapper .description > div:not(.name) {
+  color       : var(--text-muted);
+  font-size   : 14px;
+  line-height : 1.65;
+}
+
+.home-wrapper .description > div + div {
+  margin-top : 5px;
+}
+
+.home-wrapper .description .position {
+  color       : var(--text);
+  font-weight : 500;
 }
 
 @media (min-width: 576px) {
@@ -203,14 +242,16 @@ nav {
  *------------------*/
 
 .pub-wrapper .title a {
-  color       : #1a1a1a;
-  font-weight : var(--serif-weight);
+  color       : var(--text);
+  font-weight : 500;
   font-family : var(--serif-font);
-  font-size   : 16px;
+  font-size   : 17px;
+  line-height : 1.45;
 }
 
 .pub-wrapper .title a:hover {
-  color : #1a1a1a;
+  color   : var(--text);
+  opacity : 0.7;
 }
 
 .pub-wrapper .authors {
@@ -236,10 +277,11 @@ nav {
 .pub-wrapper .figure img {
   margin         : auto;
   padding-left   : 0;
-  padding-right  : 30px;
+  padding-right  : 24px;
   padding-top    : 10px;
   padding-bottom : 10px;
   width          : 100%;
+  border-radius  : var(--radius-media);
 }
 
 @media (max-width: 767.98px) {
@@ -352,15 +394,56 @@ nav {
   line-height : 1.45;
 }
 
+.pub-wrapper .links {
+  margin-top : 6px;
+  font-size  : 14px;
+}
+
+/* ---- Content lists: bio sections + Research Interests ---- */
+.bio-wrapper li,
+.home-wrapper .interests ul {
+  list-style : none;
+  margin     : 0;
+  padding    : 0;
+}
+
+.bio-wrapper li,
+.home-wrapper .interests ul li {
+  position      : relative;
+  padding-left  : 0.85em;
+  margin-bottom : 0.35em;
+  color         : var(--text);
+}
+
+.bio-wrapper li::before,
+.home-wrapper .interests ul li::before {
+  content     : '\00B7';
+  position    : absolute;
+  left        : 0;
+  top         : 0;
+  width       : 0.55em;
+  color       : var(--text-muted);
+  font-weight : 600;
+  line-height : 1.8;
+  text-align  : center;
+}
+
+/* Biography: justified text for an even block edge */
+#bio p {
+  text-align      : justify;
+  text-align-last : left;
+  text-justify    : inter-word;
+  hyphens         : auto;
+  overflow-wrap   : break-word;
+}
+
 /* ---- Footer ---- */
 .site-footer {
-  max-width      : 1000px;
-  margin         : 0 auto;
-  padding        : 24px 30px 30px;
-  border-top     : 1px solid #eaeaea;
   text-align     : center;
-  color          : var(--dark-gray);
-  font-size      : 13px;
+  padding        : 26px 0 22px;
+  color          : var(--text-muted);
+  font-size      : 14px;
+  letter-spacing : 0.02em;
 }
 
 .site-footer p {
