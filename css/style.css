@@ -157,27 +157,33 @@ nav {
   margin-top    : 15px;
   margin-bottom : 0;
   padding       : 0;
-  display       : block;
+  display       : flex;
+  gap           : 10px;
+  list-style    : none;
 }
 
 .home-wrapper .social-icon li {
   display : inline-block;
-  margin  : 0 2px;
 }
 
 .home-wrapper .social-icon li a {
-  display       : block;
-  color         : #1a1a1a;
-  font-size     : 12px;
-  width         : 30px;
-  height        : 30px;
-  text-align    : center;
-  border-radius : 2px;
-  border        : 2px solid var(--very-light-gray);
+  display         : inline-flex;
+  align-items     : center;
+  justify-content : center;
+  background      : transparent;
+  border          : none;
+  transition      : transform 0.2s ease, opacity 0.2s ease;
 }
 
 .home-wrapper .social-icon li a:hover {
-  border-color : var(--light-gray);
+  opacity   : 0.75;
+  transform : translateY(-2px);
+}
+
+.home-wrapper .social-icon .social-svg-icon {
+  width      : 22px;
+  height     : 22px;
+  object-fit : contain;
 }
 
 .home-wrapper .interests {
