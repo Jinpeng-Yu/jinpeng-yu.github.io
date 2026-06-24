@@ -17,7 +17,7 @@ body {
   color       : #1a1a1a;
   font-weight : 300;
   background  : white;
-  margin-top  : 50px;
+  margin-top  : 0;
 }
 
 body .container,
@@ -60,8 +60,8 @@ a:hover {
 }
 
 .sec-wrapper {
-  margin-top     : -50px;
-  padding-top    : 50px;
+  margin-top     : 0;
+  padding-top    : 0;
   padding-bottom : 30px;
 }
 
@@ -208,20 +208,23 @@ nav {
 }
 
 .pub-wrapper .authors {
-  color : var(--light-gray);
-}
-
-.pub-wrapper .authors a {
-  color           : var(--light-gray);
-  text-decoration : underline;
-}
-
-.pub-wrapper .authors a:hover {
   color : var(--dark-gray);
 }
 
-.pub-wrapper .authors me {
+.pub-wrapper .authors a {
+  color                 : var(--dark-gray);
+  text-decoration       : underline;
+  text-decoration-color : var(--light-gray);
+  text-underline-offset : 2px;
+}
+
+.pub-wrapper .authors a:hover {
   color : #1a1a1a;
+}
+
+.pub-wrapper .authors me {
+  color       : #1a1a1a;
+  font-weight : 500;
 }
 
 .pub-wrapper .figure img {
@@ -341,4 +344,19 @@ nav {
   font-size   : 14px;
   margin-top  : 4px;
   line-height : 1.45;
+}
+
+/* ---- Footer ---- */
+.site-footer {
+  max-width      : 1000px;
+  margin         : 0 auto;
+  padding        : 24px 30px 30px;
+  border-top     : 1px solid #eaeaea;
+  text-align     : center;
+  color          : var(--dark-gray);
+  font-size      : 13px;
+}
+
+.site-footer p {
+  margin : 0;
 }
