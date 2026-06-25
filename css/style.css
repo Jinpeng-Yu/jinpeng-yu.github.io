@@ -437,6 +437,23 @@ nav {
   overflow-wrap   : break-word;
 }
 
+/* ---- Research Interests (centered, single line) ---- */
+.interests-line {
+  text-align : center;
+  font-size  : 15px;
+}
+
+.interests-line .ri-label {
+  font-family   : var(--serif-font);
+  font-weight   : 500;
+  color         : var(--text);
+  margin-right  : 10px;
+}
+
+.interests-line .ri-items {
+  color : var(--text-muted);
+}
+
 /* ---- Footer ---- */
 .site-footer {
   text-align     : center;
