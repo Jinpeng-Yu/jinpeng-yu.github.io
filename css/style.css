@@ -447,6 +447,20 @@ nav {
   color : var(--text-muted);
 }
 
+/* Tighten the vertical rhythm between motto, interests and bio */
+#motto {
+  padding-bottom : 6px;
+}
+
+#interests {
+  padding-top    : 8px;
+  padding-bottom : 6px;
+}
+
+#bio {
+  padding-top : 12px;
+}
+
 /* ---- Footer ---- */
 .site-footer {
   text-align     : center;
