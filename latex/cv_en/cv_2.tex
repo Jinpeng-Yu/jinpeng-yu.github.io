@@ -1,0 +1,151 @@
+\documentclass{resume} % Use the custom resume.cls style
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref}
+
+\usepackage[left=0.75in,top=0.6in,right=0.75in,bottom=0.1in]{geometry} % Document margins
+\newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}}
+\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
+
+% Define a custom sky blue color using RGB or named colors
+\definecolor{seablue}{RGB}{0, 102, 204}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=seablue,   % Use the custom sea blue color for internal links
+    citecolor=seablue,   % Color for citation links
+    filecolor=seablue,   % Color for file links
+    urlcolor=seablue     % Color for external links
+}
+
+\name{Jinpeng Yu} % Your name
+\address{
+    Homepage: \href{https://jinpeng-yu.github.io/}{\texttt{jinpeng-yu.github.io}}
+    % \href{https://scholar.google.com/citations?hl=en&user=OwkIXhIAAAAJ}{Google Scholar} \\
+    % \href{https://github.com/Jinpeng-Yu}{Github}
+}
+% phone number and email
+\address{
+    Email: \href{mailto:yujp1@alumni.shanghaitech.edu.cn}{\texttt{yujp1@alumni.shanghaitech.edu.cn}} \\
+    Phone: (+86) 178-5222-8312
+}
+
+% define section and subsection style
+% \definecolor{CarnegieMellonRed}{RGB}{196,18,48}
+\definecolor{StanfordRed}{RGB}{140, 21, 21}
+\definecolor{DefaultBlack}{RGB}{0,0,0}
+
+\renewenvironment{rSection}[1]{
+\sectionskip
+\textcolor{DefaultBlack}{\bf #1}
+\sectionlineskip
+\hrule
+\begin{list}{}{
+\setlength{\leftmargin}{0em}
+}
+\item[]
+}{
+\end{list}
+\vspace{-0.5em} % Compress list together for aesthetics
+}
+
+\renewenvironment{rSubsection}[2]{ % 2 input arguments - subsection title, year(s)
+{\bf #1} \hfill {#2} % Bold title and date on the right
+\begin{list}{}{\leftmargin=1em} % \cdot used for bullets, no indentation
+\item[] \vspace{-0.5em} % Compress items in list together for aesthetics
+}{
+\end{list}
+\vspace{-0.2em} % Compress list together for aesthetics
+}
+
+\begin{document}
+\begin{rSection}{Bios}
+I earned my Master's degree from \href{https://sist.shanghaitech.edu.cn/sist_en/}{ShanghaiTech University} in July 2024, under the supervision of Prof. \href{https://scholar.google.com.sg/citations?user=fe-1v0MAAAAJ&hl=en}{Shenghua Gao} (HKU). Prior to that, I graduated with honors from the \href{https://www.hit.edu.cn/}{Harbin Institute of Technology} (HIT) in June 2021. My current research interests include controllable image generation and multimodal understanding and generation. Additionally, I am also exploring embodied AI research.
+\end{rSection}
+
+\begin{rSection}{Education}
+\begin{rSubsection}{ShanghaiTech University}{July 2024}
+M.S. in Computer Science, supervisor: Prof. \href{https://scholar.google.com.sg/citations?user=fe-1v0MAAAAJ&hl=en}{Shenghua Gao} \\
+{\em awarded Academic Excellence Scholarship for three consecutive years}
+\end{rSubsection}
+
+\begin{rSubsection}{Harbin Institute of Technology (HIT)}{June 2021}
+B.E. in Computer Science \\
+{\em Top 5\%, awarded Outstanding Graduate}
+\end{rSubsection}
+\end{rSection}
+
+
+\begin{rSection}{Publications}
+\begin{rSubsection}{Pseudo-plane Regularized Signed Distance Field for Neural Indoor Scene Reconstruction}{}
+\underline{\bf Jinpeng Yu$^*$}, Jing Li$^*$, Ruoyu Wang, Shenghua Gao \\
+{\em International Journal of Computer Vision} ({\bf IJCV}), 2024
+\end{rSubsection}
+
+\begin{rSubsection}{GeoFormer: Learning Point Cloud Completion with Tri-Plane Integrated Transformer}{}
+\underline{\bf Jinpeng Yu}, Binbin Huang, Yuxuan Zhang, Huaxia Li, Xu Tang, and Shenghua Gao \\
+{\em ACM International Conference on Multimedia} ({\bf ACM MM}), 2024
+\end{rSubsection}
+
+\begin{rSubsection}{SSR-Encoder: Encoding Selective Subject Representation for Subject-Driven Generation}{}
+Yuxuan Zhang, Jiaming Liu, Yiren Song, \underline{\bf Jinpeng Yu}, Rui Wang, Hao Tang, Huaxia Li, Xu Tang, Yao Hu, Han Pan and Zhongliang Jing \\
+{\em IEEE/CVF Conference on Computer Vision and Pattern Recognition} ({\bf CVPR}), 2024
+\end{rSubsection}
+
+\begin{rSubsection}{Fast Personalized Text to Image Synthesis with Attention Injection}{}
+Yuxuan Zhang, Yiren Song, \underline{\bf Jinpeng Yu}, Han Pan and Zhongliang Jing \\
+{\em IEEE International Conference on Acoustics, Speech and Signal Processing} ({\bf ICASSP}), 2024, \textcolor{StanfordRed}{Oral}
+\end{rSubsection}
+
+\begin{rSubsection}{P$^2$SDF for Neural Indoor Scene Reconstruction}{}
+Jing Li$^*$, \underline{\bf Jinpeng Yu$^*$}, Ruoyu Wang, Zhengxin Li, Zhengyu Zhang, Lina Cao, and Shenghua Gao \\
+{\em arXiv preprint} ({\bf arXiv}), 2023
+\end{rSubsection}
+\end{rSection}
+
+\begin{rSection}{Projects}
+\begin{rSubsection}{Advanced Outpainting with Controllable Subject Brightness}{Oct 2024}
+{\em Recent Project, launch of Product AI-Tab} \\
+Collected 2 million high-quality photographic datasets, extracted the corresponding saliency masks, and adjusted the subject brightness to implement a foreground perturbation strategy.
+\end{rSubsection}
+
+\begin{rSubsection}{Exploring InstantID Reconstruction with ControlNet-XS}{May 2024}
+{\em Internship Project, launch of Product Jinggou} \\
+Utilized ControlNet-XS to replace the control architecture of InstantID, reducing inference resource consumption and enhancing the model's effectiveness and efficiency.
+\end{rSubsection}
+
+\begin{rSubsection}{Crowd Counting and Localization based on Independent Instance Maps}{May 2021}
+{\em Bachelor’s Thesis} \\
+Re-implemented RDNet using independent instance maps to guide density map regression.
+\end{rSubsection}
+\end{rSection}
+
+\newpage
+\begin{rSection}{Services}
+\begin{rSubsection}{Conference Reviewer}{}
+CVPR (2024, 2025), ECCV (2024), ACM MM (2024), ICME (2024)
+\end{rSubsection}
+\end{rSection}
+
+\begin{rSection}{Experiences}
+AGI Researcher at Xiaohongshu AIGC Team (Full-time Employee) \hfill {07/2024 - present} \\
+AGI Research Intern at Xiaohongshu AIGC Team \hfill {05/2023 - 06/2024} \\
+TA of Academic Paper Writing (SI200), Prof: Song Liu, ShanghaiTech \hfill {Autumn 2022} \\
+TA of Computer Vision II (CS272), Prof: Shenghua Gao, ShanghaiTech \hfill {Autumn 2021}
+\end{rSection}
+
+\begin{rSection}{Achievements}
+{Academic Excellence Scholarship, awarded by ShanghaiTech}\hfill {2022, 2023, 2024} \\
+{Outstanding Graduate, awarded by HIT}\hfill {June 2021} \\
+{National Scholarship, awarded by HIT, Ministry of Education}\hfill {2020} \\
+{Outstanding Student, awarded by HIT}\hfill {2019, 2020} \\
+{Merit Student, awarded by HIT}\hfill {2019, 2020}
+\end{rSection}
+
+\begin{rSection}{Skills/Hobbies}
+\begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
+Programming &  Python, Pytorch, C/C++ \\
+% Machine Learning Tools & Pytorch, Tensorflow, Sklearn, Pandas, Numpy \\
+Hobbies & Hiking, Traveling and Photography \\
+\end{tabular}
+\end{rSection}
+\end{document}

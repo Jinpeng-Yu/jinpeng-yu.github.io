@@ -1,0 +1,166 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Medium Length Professional CV
+% LaTeX Template
+% Version 2.0 (8/5/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Trey Hunner (http://www.treyhunner.com/)
+%
+% Important note:
+% This template requires the resume.cls file to be in the same directory as the
+% .tex file. The resume.cls file provides the resume style used for structuring the
+% document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{resume} % Use the custom resume.cls style
+
+% \usepackage[left=0.75in,top=0.6in,right=0.75in,bottom=0.6in]{geometry} % Document margins
+\usepackage{ctex}
+\usepackage{cite}
+\usepackage[colorlinks,linkcolor=blue]{hyperref}
+\name{于劲鹏} % Your name
+% \address{男 ｜ 上海科技大学 } % Your address
+% \address{123 Pleasant Lane \\ City, State 12345} % Your secondary addess (optional)
+\address{178-5222-8312 | 男 | yjp001722@163.com} % Your phone number and email
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+\vspace{-6pt}
+
+\begin{rSection}{个人简述}
+% 本人（\href{https://jinpeng-yu.github.io/}{个人主页}）现为小红书商业算法组算法工程师，主要负责AIGC驱动的智能创意生成和优化等相关业务。2024年7月毕业于上海科技大学\href{https://scholar.google.com.sg/citations?user=fe-1v0MAAAAJ&hl=en}{高盛华}教授课题组，研究领域包括多模态内容生成（AIGC），跨模态理解与对齐和神经辐射场（NeRF）的3D重建优化。截至目前，本人共发表有5篇顶会论文（IJCV/ACM MM/CVPR等），以及3篇发明专利（1项已授权），希望应聘贵公司多模态算法工程师岗位。
+本人（\href{https://jinpeng-yu.github.io/}{个人主页}）现任小红书商业算法组算法工程师，主要负责AIGC相关算法的研发与应用，包括多模态图文生成、智能海报生成，以及相关智能编辑辅助工具的设计与研发上线。硕士毕业于上海科技大学\href{https://scholar.google.com.sg/citations?user=fe-1v0MAAAAJ&hl=en}{高盛华}教授课题组，主要从事包括多模态内容生成（AIGC），跨模态理解与对齐，以及基于神经辐射场（NeRF）的3D重建优化等研究工作。截至目前，本人已发表有多篇顶会论文（IJCV/ACM MM/CVPR等）及发明专利，希望应聘贵公司AIGC算法工程师岗位。
+\end{rSection}
+
+\vspace{-6pt}
+
+\begin{rSection}{教育经历}
+{\bf 上海科技大学} \hfill 2021/09-2024/07 \\
+\begin{tabular}{@{}p{.3\linewidth}l}
+计算机科学与技术, 硕士 \hfill & {\em - 保送、优秀毕业生}\\
+\end{tabular} \\
+{\bf 哈尔滨工业大学} \hfill 2017/09-2021/06 \\
+\begin{tabular}{@{}p{.3\linewidth}l}
+软件工程，工学学士 \hfill & {\em - 优秀毕业生（前{\em 5\%}）、优秀毕业论文（前{\em 1\%}，{\em Crowd Counting}方向）}\\
+\end{tabular}
+\end{rSection}
+
+\begin{rSection}{工作经历}
+{\bf 小红书公司} \hfill 2024/07-{\em 至今} \\
+\begin{tabular}{@{}p{.3\linewidth}l}
+智创、商业算法组, 算法工程师 \hfill & {\em - 多模态理解与}AIGC{\em 内容生成方向} \\
+\end{tabular} \\
+{\bf 小红书公司} \hfill 2023/05-2024/07 \\
+\begin{tabular}{@{}p{.3\linewidth}l}
+智能创作组, 算法实习生 \hfill & - AIGC{\em 内容生成方向} \\
+\end{tabular} \\
+\end{rSection}
+
+
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+\vspace{-6pt}
+
+\begin{rSection}{主要项目经历}
+\begin{rSubsection}{个性化广告封面生成系统的构建与基于DiT的封面Layout生成模型的训练优化}{2024/12-至今}{算法工程师，主导广告封面智能生成，主要产品：\href{https://ad.xiaohongshu.com/}{聚光}}{小红书}
+\item 在当前数字化营销趋势下，中小商家日益依赖在线广告和社交媒体进行产品推广。然而，优质海报的设计往往需要专业技能和复杂软件，显著提高了运营成本和难度。现有的文字海报生成技术多基于固定模板，对复杂视觉元素处理能力有限，常见问题包括文字被遮挡、清晰度不足及商品主体覆盖，直接影响海报的点击率、曝光量和转化效果。
+\item 基于此，我构建了一套基于多模态模型的智能模板匹配与生成系统，通过LLM模型智能识别用户笔记内容生成上图文案，同时通过VLM模型自动识别图片主体，智能匹配模板并优化文案排版。系统可避开文字与关键视觉元素的重叠，自动调整文字样式和颜色以提升可读性与美观性，同时优化模板选择效率和封面美学，大幅降低中小商家广告海报的设计时间和成本，显著提升制作效率和推广效果。
+\item 同时，为了提升模型生成封面的美学表现，我们系统性地收集并标注了大量真实用户上传的封面图像美学数据，涵盖构图、色彩、视觉平衡等多个维度。基于这些数据，对VLM模型进行有针对性的训练，使其能够从多方面综合评价封面图像的美感和视觉效果，从而持续提升海报的美观度与吸引力。
+\item 最后，针对已有文字内容的封面二创场景，我带领实习生一起提出了一种基于图的DiT扩散模型方法，旨在优化布局生成中常见的重叠和错位问题。该方法将所有布局元素和图像块表示为独立节点，基于特定拓扑构建图，并应用图神经网络（GNN）来捕获其高维空间关系。最重要的是，我们提出的的 LayoutGD 方法可以在一个统一的框架中高效地同时处理底图干净或复杂的二创需求。
+\end{rSubsection}
+
+\begin{rSubsection}{基于Stable Diffusion的定制化图像生成模型的训练优化及质量评测}{2023/05-至今}{算法实习生，主要相关工作：\href{https://github.com/Xiaojiu-z/SSR_Encoder}{SSR\_Encoder-CVPR}、\href{https://www.xiaohongshu.com/user/profile/643e5ea6000000001400c56a?xsec_token=ABOD2NFRFYHdI7kV0GrCk3f_nBgE46XTHwv5QXipzGxXY=&xsec_source=pc_search}{镜构}、\href{https://www.qiyuai.net/}{奇遇}}{小红书}
+\item SD图像生成大模型的训练，训练周期长，训练成本高，生成结果可控性低，极度依赖数据表现，且缺乏合适的评测指标。现有的定制化风格的模型Finetune方案存在严重的数据和评测卡点，我的工作致力于降低训练成本，解决模型训练数据量少，质量差的问题，提升模型的可控生成能力，以及摆脱模型评测对人工的依赖，从而高效地产出高质量模型。
+\item 基于此，我们主要探索了几种基于特征掩码的无训练/Encoder based的定制化图像生成框架。无训练方法通过提取前2步的注意力特征掩码，将参考图的主体特征注入到生成图特征中，在保持图文和主体一致性的前提下提升了生成的多样性。Encoder的方法通过高效地提取参考图的细节特征，来指导模型定制化地生成高度一致的风格化结果。
+\item 同时，我还训练了一个基于MMoE的Multi-task图像质量检测模型，根据检测反馈针对性地优化SD、LoRA等模型的训练，并利用CLIP等多模态模型优秀的图文联合表征能力，设计了更为合理的模型评测指标用于指导模型训练。基于此我构建了一套高效且完整的训练反馈优化机制以及自动化多尺度模型评测链路。
+\end{rSubsection}
+
+% \vspace{-6pt}
+
+% \begin{rSubsection}{基于伪平面约束的室内场景三维重建}{2022/10 - 2024/03}{Project Leader, 主要相关工作：\href{https://jinpeng-yu.github.io/documents/PPlaneSDF.pdf}{PPlaneSDF-IJCV}}{上海科技大学}
+% \item 近期提出的基于VolSDF的室内场景重建方法或需要较强的Manhattan-world假设以致于难以泛化到通用场景，或需要引入额外的几何预训练网络使得整体流程较为复杂。本篇工作致力于在简化网络流程的同时解决场景重建的泛化问题，在ScanNet等诸多数据集的重建指标上均取得了SOTA性能。
+% \item 我们使用Pseudo-plane(伪平面)来约束平面区域几何特征，引入多视角Plane Segment Fusion(平面分割融合)方法来提升伪平面预测的准确度，又提出一种更为高效的基于Keypoint(关键点)的光线采样指导策略。实验表明我们的新方法不仅提升了模型的重建性能，同时提升了模型在不同场景下的泛化性。
+% \end{rSubsection}
+
+% \begin{rSubsection}{RGB-D Crowd Counting and Localization \href{https://github.com/Jinpeng-Yu/GraduationProject}{[GitHub]} }{2020/11 - 2021/06}{优秀毕业论文}{哈尔滨工业大学、上海科技大学}
+% \item 基于检测的人群计数方法在小微人头场景下存在Underestimation(低估)问题，基于回归的方法则是只能给出Density Map(密度图)预测结果。本篇工作借助Depth(深度)信息将两类方法结合起来，在提升人群计数精度的同时给出相应的人头定位结果。
+% \item 我们提出Depth-adaptive(深度自适应)高斯核来生成更为准确的密度图用以优化回归网络，引入Depth-aware Anchor(深度感知锚点)来提升模型对小微人头的感知，利用多层Masked(掩码)密度图特征来提升检测网络的分类和Bounding Box(边界框)回归精度。
+% \end{rSubsection}
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	TECHNICAL STRENGTHS SECTION
+%----------------------------------------------------------------------------------------
+\vspace{-8pt}
+
+\begin{rSection}{主要论文发表}
+\begin{rSubsection}{AIGC方向}{}{}{}
+\item LayoutGD: Content-Aware Layout Generation via Graph-Enhanced Diffusion Model \\
+Xudong Zhou, \underline{\bf Jinpeng Yu $^\dag$}, Ziyuan Guo, Cunzheng Wang, Huaxia Li, Dejia Song, Xu Tang, Yao Hu \\
+{\em The Association for the Advancement of Artificial Intelligence} ({\bf AAAI}), Under Review, 2026
+\item SSR-Encoder: Encoding Selective Subject Representation for Subject-Driven Generation \\
+Yuxuan Zhang, Jiaming Liu, Yiren Song, \underline{\bf Jinpeng Yu}, Rui Wang, Hao Tang, Huaxia Li, Xu Tang, Yao Hu, Han Pan and Zhongliang Jing \\
+{\em IEEE/CVF Conference on Computer Vision and Pattern Recognition} ({\bf CVPR}), 2024
+\item Fast Personalized Text to Image Synthesis with Attention Injection \\
+Yuxuan Zhang, Yiren Song, \underline{\bf Jinpeng Yu}, Han Pan and Zhongliang Jing \\
+{\em IEEE International Conference on Acoustics, Speech and Signal Processing} ({\bf ICASSP}), 2024, \bf{Oral}
+\end{rSubsection}
+
+
+\begin{rSubsection}{3D方向}{}{}{}
+\item Pseudo-plane Regularized Signed Distance Field for Neural Indoor Scene Reconstruction \\
+\underline{\bf Jinpeng Yu$^*$}, Jing Li$^*$, Ruoyu Wang and Shenghua Gao. \\
+{\em International Journal of Computer Vision} ({\bf IJCV}), 2024
+\item GeoFormer: Learning Point Cloud Completion with Tri-Plane Integrated Transformer \\
+\underline{\bf Jinpeng Yu}, Binbin Huang, Yuxuan Zhang, Huaxia Li, Xu Tang, and Shenghua Gao \\
+{\em ACM International Conference on Multimedia} ({\bf ACM MM}), 2024
+\end{rSubsection}
+\end{rSection}
+
+\vspace{-8pt}
+
+\begin{rSection}{专业技能}
+熟练掌握Python，PyTorch，熟悉Transformer，扩散模型等大模型框架。对Stable Diffusion，NeRF，多模态融合了解较深。关注工业界，学术界前沿论文成果，有很强的自驱力，喜欢学习新知识解决实际问题。
+\end{rSection}
+
+\vspace{-6pt}
+
+\begin{rSection}{奖项荣誉}
+哈尔滨工业大学国家奖学金、一等奖学金 \\
+上海科技大学研究生奖学金
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	EXAMPLE SECTION
+%----------------------------------------------------------------------------------------
+
+%\begin{rSection}{Section Name}
+
+%Section content\ldots
+
+%\end{rSection}
+
+%----------------------------------------------------------------------------------------
+
+% \bibliographystyle{plain}
+% % 要引用的文献
+
+% % \cite{Chen2019Machine}
+% % \cite{Kushal2018Machine}
+
+% \bibliography{ref}
+
+
+\end{document}
