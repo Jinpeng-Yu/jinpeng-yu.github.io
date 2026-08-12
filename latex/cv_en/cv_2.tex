@@ -1,38 +1,43 @@
-\documentclass{resume} % Use the custom resume.cls style
+\documentclass{resume}
+
 \usepackage[dvipsnames]{xcolor}
+\usepackage[a4paper,left=0.68in,top=0.48in,right=0.68in,bottom=0.45in]{geometry}
 \usepackage{hyperref}
 
-\usepackage[left=0.75in,top=0.6in,right=0.75in,bottom=0.1in]{geometry} % Document margins
-\newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}}
-\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
-
-% Define a custom sky blue color using RGB or named colors
-\definecolor{seablue}{RGB}{0, 102, 204}
+\definecolor{seablue}{RGB}{0,102,204}
+\definecolor{DefaultBlack}{RGB}{0,0,0}
 
 \hypersetup{
     colorlinks=true,
-    linkcolor=seablue,   % Use the custom sea blue color for internal links
-    citecolor=seablue,   % Color for citation links
-    filecolor=seablue,   % Color for file links
-    urlcolor=seablue     % Color for external links
+    linkcolor=seablue,
+    citecolor=seablue,
+    filecolor=seablue,
+    urlcolor=seablue
 }
 
-\name{Jinpeng Yu} % Your name
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+
+\name{Jinpeng Yu}
 \address{
-    Homepage: \href{https://jinpeng-yu.github.io/}{\texttt{jinpeng-yu.github.io}}
-    % \href{https://scholar.google.com/citations?hl=en&user=OwkIXhIAAAAJ}{Google Scholar} \\
-    % \href{https://github.com/Jinpeng-Yu}{Github}
+    \href{https://jinpeng-yu.github.io/}{Homepage} $\vert$
+    \href{https://scholar.google.com/citations?hl=en\&user=OwkIXhIAAAAJ}{Google Scholar} $\vert$
+    \href{https://github.com/Jinpeng-Yu}{GitHub}
 }
-% phone number and email
 \address{
-    Email: \href{mailto:yujp1@alumni.shanghaitech.edu.cn}{\texttt{yujp1@alumni.shanghaitech.edu.cn}} \\
-    Phone: (+86) 178-5222-8312
+    \href{mailto:yujinpeng.yjp@alibaba-inc.com}{yujinpeng.yjp@alibaba-inc.com} $\vert$
+    \href{mailto:yjp001722@163.com}{yjp001722@163.com}
 }
 
-% define section and subsection style
-% \definecolor{CarnegieMellonRed}{RGB}{196,18,48}
-\definecolor{StanfordRed}{RGB}{140, 21, 21}
-\definecolor{DefaultBlack}{RGB}{0,0,0}
+\makeatletter
+\renewcommand{\printname}{
+  \begingroup
+    \centering
+    {\namesize\bfseries \@name\par}
+    \nameskip
+  \endgroup
+}
+\makeatother
 
 \renewenvironment{rSection}[1]{
 \sectionskip
@@ -45,107 +50,135 @@
 \item[]
 }{
 \end{list}
-\vspace{-0.5em} % Compress list together for aesthetics
+\vspace{-0.25em}
 }
 
-\renewenvironment{rSubsection}[2]{ % 2 input arguments - subsection title, year(s)
-{\bf #1} \hfill {#2} % Bold title and date on the right
-\begin{list}{}{\leftmargin=1em} % \cdot used for bullets, no indentation
-\item[] \vspace{-0.5em} % Compress items in list together for aesthetics
+\renewenvironment{rSubsection}[2]{
+{\bf #1} \hfill {#2}
+\begin{list}{}{\leftmargin=1em}
+\item[] \vspace{-0.55em}
 }{
 \end{list}
-\vspace{-0.2em} % Compress list together for aesthetics
+\vspace{-0.25em}
+}
+
+\newcommand{\pubentry}[3]{
+{{\fontsize{10.8}{13}\selectfont\bfseries #1}}\\[-0.15em]
+#2\\[-0.15em]
+{\em #3}\par\vspace{0.3em}
 }
 
 \begin{document}
-\begin{rSection}{Bios}
-I earned my Master's degree from \href{https://sist.shanghaitech.edu.cn/sist_en/}{ShanghaiTech University} in July 2024, under the supervision of Prof. \href{https://scholar.google.com.sg/citations?user=fe-1v0MAAAAJ&hl=en}{Shenghua Gao} (HKU). Prior to that, I graduated with honors from the \href{https://www.hit.edu.cn/}{Harbin Institute of Technology} (HIT) in June 2021. My current research interests include controllable image generation and multimodal understanding and generation. Additionally, I am also exploring embodied AI research.
+
+\begin{rSection}{Profile}
+Senior Researcher and Content Generation Algorithm Lead for the Qwen Business Unit at Alibaba Group, focusing on multimodal AI agent systems and generative models for image and video creation. Previously a Senior Researcher on the AIGC team at Xiaohongshu, working on controllable image generation and multimodal understanding.\\
+My current research interests include \textbf{real-time controllable video generation} and \textbf{content creation agent systems}.
+\end{rSection}
+
+\begin{rSection}{Experience}
+\begin{rSubsection}{Alibaba Group --- Qwen Business Unit}{Nov. 2025 -- Present}
+Senior Researcher \& Content Generation Algorithm Lead \textit{(Talent Program)}\\
+Mentor a team of two full-time members and seven interns.\\
+Research and development of multimodal AI agent systems and generative models for image and video creation.\\
+\textbf{Projects:} \href{https://www.qianwen.com/}{Qwen App}.\\
+\textbf{Research:} Supervised the development of six papers.
+\end{rSubsection}
+
+\begin{rSubsection}{Xiaohongshu --- AIGC Team}{Jul. 2024 -- Nov. 2025}
+Senior Researcher \textit{(Talent Program)}\\
+Research and development of controllable image generation and multimodal understanding.\\
+\textbf{Projects:} \href{https://ad.xiaohongshu.com/}{Juguang} and \href{https://www.53ai.com/news/neirongchuangzuo/2024090686590.html}{Jinggou}.\\
+\textbf{Research:} Mentored projects resulting in two accepted papers \href{https://dl.acm.org/doi/10.1145/3805622.3810729}{[1]}\href{https://arxiv.org/pdf/2603.29469}{[2]}.
+\end{rSubsection}
+
+\begin{rSubsection}{Xiaohongshu --- AIGC Team}{May 2023 -- Jun. 2024}
+Research Intern\\
+Developed controllable image-generation methods and efficient identity-preserving generation systems.\\
+\textbf{Research:} Two first-author papers and one co-authored paper, all accepted.
+\end{rSubsection}
 \end{rSection}
 
 \begin{rSection}{Education}
-\begin{rSubsection}{ShanghaiTech University}{July 2024}
-M.S. in Computer Science, supervisor: Prof. \href{https://scholar.google.com.sg/citations?user=fe-1v0MAAAAJ&hl=en}{Shenghua Gao} \\
-{\em awarded Academic Excellence Scholarship for three consecutive years}
+\begin{rSubsection}{ShanghaiTech University}{2021 -- 2024}
+M.S. in Computer Science, School of Information Science and Technology\\
+Advisor: Prof. \href{https://scholar.google.com.sg/citations?user=fe-1v0MAAAAJ\&hl=en}{Shenghua Gao}; Academic Excellence Scholarship (Top 1\%, 2022--2024)
 \end{rSubsection}
 
-\begin{rSubsection}{Harbin Institute of Technology (HIT)}{June 2021}
-B.E. in Computer Science \\
-{\em Top 5\%, awarded Outstanding Graduate}
-\end{rSubsection}
-\end{rSection}
-
-
-\begin{rSection}{Publications}
-\begin{rSubsection}{Pseudo-plane Regularized Signed Distance Field for Neural Indoor Scene Reconstruction}{}
-\underline{\bf Jinpeng Yu$^*$}, Jing Li$^*$, Ruoyu Wang, Shenghua Gao \\
-{\em International Journal of Computer Vision} ({\bf IJCV}), 2024
-\end{rSubsection}
-
-\begin{rSubsection}{GeoFormer: Learning Point Cloud Completion with Tri-Plane Integrated Transformer}{}
-\underline{\bf Jinpeng Yu}, Binbin Huang, Yuxuan Zhang, Huaxia Li, Xu Tang, and Shenghua Gao \\
-{\em ACM International Conference on Multimedia} ({\bf ACM MM}), 2024
-\end{rSubsection}
-
-\begin{rSubsection}{SSR-Encoder: Encoding Selective Subject Representation for Subject-Driven Generation}{}
-Yuxuan Zhang, Jiaming Liu, Yiren Song, \underline{\bf Jinpeng Yu}, Rui Wang, Hao Tang, Huaxia Li, Xu Tang, Yao Hu, Han Pan and Zhongliang Jing \\
-{\em IEEE/CVF Conference on Computer Vision and Pattern Recognition} ({\bf CVPR}), 2024
-\end{rSubsection}
-
-\begin{rSubsection}{Fast Personalized Text to Image Synthesis with Attention Injection}{}
-Yuxuan Zhang, Yiren Song, \underline{\bf Jinpeng Yu}, Han Pan and Zhongliang Jing \\
-{\em IEEE International Conference on Acoustics, Speech and Signal Processing} ({\bf ICASSP}), 2024, \textcolor{StanfordRed}{Oral}
-\end{rSubsection}
-
-\begin{rSubsection}{P$^2$SDF for Neural Indoor Scene Reconstruction}{}
-Jing Li$^*$, \underline{\bf Jinpeng Yu$^*$}, Ruoyu Wang, Zhengxin Li, Zhengyu Zhang, Lina Cao, and Shenghua Gao \\
-{\em arXiv preprint} ({\bf arXiv}), 2023
+\begin{rSubsection}{Harbin Institute of Technology}{2017 -- 2021}
+B.E. in Computer Science; Top 1\%; Outstanding Graduate
 \end{rSubsection}
 \end{rSection}
 
-\begin{rSection}{Projects}
-\begin{rSubsection}{Advanced Outpainting with Controllable Subject Brightness}{Oct 2024}
-{\em Recent Project, launch of Product AI-Tab} \\
-Collected 2 million high-quality photographic datasets, extracted the corresponding saliency masks, and adjusted the subject brightness to implement a foreground perturbation strategy.
-\end{rSubsection}
+\begin{rSection}{Academic Service}
+\textbf{Journal Reviewer:} IJCV\\
+\textbf{Conference Reviewer:} CVPR, ICCV, ECCV, ACM MM, NeurIPS, ICLR
+\end{rSection}
 
-\begin{rSubsection}{Exploring InstantID Reconstruction with ControlNet-XS}{May 2024}
-{\em Internship Project, launch of Product Jinggou} \\
-Utilized ControlNet-XS to replace the control architecture of InstantID, reducing inference resource consumption and enhancing the model's effectiveness and efficiency.
-\end{rSubsection}
+\begin{rSection}{Selected Honors}
+Academic Excellence Scholarship, ShanghaiTech (Top 1\%) \hfill 2022, 2023, 2024\\
+Outstanding Graduate, Harbin Institute of Technology (Top 1\%) \hfill 2021\\
+National Scholarship, Ministry of Education of China (Top 1\%) \hfill 2019, 2020
+\end{rSection}
 
-\begin{rSubsection}{Crowd Counting and Localization based on Independent Instance Maps}{May 2021}
-{\em Bachelor’s Thesis} \\
-Re-implemented RDNet using independent instance maps to guide density map regression.
-\end{rSubsection}
+\begin{rSection}{Interests}
+Photography (Nikon Z6 and iPhone), traveling, hiking (Mount Siguniang, 4,668 m), Taekwondo (8th Kup), language learning, skiing, swimming, badminton, and table tennis
 \end{rSection}
 
 \newpage
-\begin{rSection}{Services}
-\begin{rSubsection}{Conference Reviewer}{}
-CVPR (2024, 2025), ECCV (2024), ACM MM (2024), ICME (2024)
-\end{rSubsection}
+
+\begin{rSection}{Publications}
+\small{$^*$ Equal contribution. $^\dagger$ Project lead. Jinpeng Yu is underlined.}
+
+\vspace{0.25em}
+\textbf{Video Generation}
+
+\pubentry{\href{https://uniswap-av.github.io/}{UniSwap: Streaming Audio-Visual Identity Swapping for Talking Videos}}
+{Yuxuan Zhang, Haozhong Xiong, Jiayi Song, \underline{\bf Jinpeng Yu$^\dagger$}, Yang Shi, Jiaming Liu, Ruihua Huang, and Liwei Wang}
+{Preprint, Aug. 2026}
+
+\pubentry{\href{https://liveanimate.github.io/}{LiveAnimate: Stable Long-Form Streaming Human Animation in Real-Time}}
+{Yuxuan Zhang, Haozhong Xiong, Yubo Huang, Jiayi Song, \underline{\bf Jinpeng Yu$^\dagger$}, Jiaming Liu, Ruihua Huang, and Liwei Wang}
+{Preprint, Aug. 2026}
+
+\pubentry{AVA-Encoder: Towards Agent-Native Video Representation Learning}
+{Chuyue Li, \underline{\bf Jinpeng Yu$^\dagger$}, Haozhe Wang, Xueyun Tian, Zhijing Zhang, Bingnan Li, Shuqi Gu, Kan Ren, Jiaming Liu, and Ruihua Huang}
+{Preprint, Aug. 2026}
+
+\pubentry{\href{https://rethinking-cfg-opd.github.io/}{Rethinking Classifier-Free Guidance in On-Policy Diffusion Distillation}}
+{Bingnan Li, Haozhe Wang, Haozhong Xiong, Fangtai Wu, \underline{\bf Jinpeng Yu$^\dagger$}, Yang Shi, Jiaming Liu, and Ruihua Huang}
+{Preprint, Jul. 2026}
+
+\textbf{Image Generation}
+
+\pubentry{\href{https://huggingface.co/papers/2608.07565}{What to Edit Next: Visually Aligned Image-Editing Follow-Up Suggestions in Conversational Systems}}
+{Zhijing Zhang, \underline{\bf Jinpeng Yu$^\dagger$}, Xin Song, Bingnan Li, Chuyue Li, Changhui Du, Xiaolin Fang, Jiaming Liu, and Ruihua Huang}
+{Preprint, Aug. 2026}
+
+\pubentry{\href{https://haozheh3.github.io/SearchGen/}{Search Beyond What Can Be Taught: Evolving the Knowledge Boundary in Agentic Visual Generation}}
+{Haozhe Wang, Weijia Feng, \underline{\bf Jinpeng Yu$^\dagger$}, Che Liu, Ping Nie, Fangzhen Lin, Jiaming Liu, Ruihua Huang, Jimmy Lin, Wenhu Chen, and Cong Wei}
+{Preprint, Jul. 2026; \#3 Paper of the Day}
+
+\pubentry{\href{https://ssr-encoder.github.io/}{SSR-Encoder: Encoding Selective Subject Representation for Subject-Driven Generation}}
+{Yuxuan Zhang, Yiren Song, Jiaming Liu, Rui Wang, \underline{\bf Jinpeng Yu}, Hao Tang, Huaxia Li, Xu Tang, Yao Hu, Han Pan, and Zhongliang Jing}
+{IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2024}
+
+\pubentry{\href{https://arxiv.org/abs/2403.11284}{Fast Personalized Text to Image Synthesis with Attention Injection}}
+{Yuxuan Zhang, Yiren Song, \underline{\bf Jinpeng Yu}, Han Pan, and Zhongliang Jing}
+{IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), 2024; Oral}
+
+\textbf{3D Generation}
+
+\pubentry{\href{https://jinpeng-yu.github.io/documents/PPlaneSDF.pdf}{Pseudo-plane Regularized Signed Distance Field for Neural Indoor Scene Reconstruction}}
+{\underline{\bf Jinpeng Yu$^*$}, Jing Li$^*$, Ruoyu Wang, and Shenghua Gao}
+{International Journal of Computer Vision (IJCV), 2024}
+
+\pubentry{\href{https://arxiv.org/abs/2408.06596}{GeoFormer: Learning Point Cloud Completion with Tri-Plane Integrated Transformer}}
+{\underline{\bf Jinpeng Yu}, Binbin Huang, Yuxuan Zhang, Huaxia Li, Xu Tang, and Shenghua Gao}
+{ACM International Conference on Multimedia (ACM MM), 2024}
+
+\pubentry{\href{https://arxiv.org/abs/2303.00236}{P$^2$SDF for Neural Indoor Scene Reconstruction}}
+{Jing Li$^*$, \underline{\bf Jinpeng Yu$^*$}, Ruoyu Wang, Zhengxin Li, Zhengyu Zhang, Lina Cao, and Shenghua Gao}
+{arXiv preprint, 2023}
 \end{rSection}
 
-\begin{rSection}{Experiences}
-AGI Researcher at Xiaohongshu AIGC Team (Full-time Employee) \hfill {07/2024 - present} \\
-AGI Research Intern at Xiaohongshu AIGC Team \hfill {05/2023 - 06/2024} \\
-TA of Academic Paper Writing (SI200), Prof: Song Liu, ShanghaiTech \hfill {Autumn 2022} \\
-TA of Computer Vision II (CS272), Prof: Shenghua Gao, ShanghaiTech \hfill {Autumn 2021}
-\end{rSection}
-
-\begin{rSection}{Achievements}
-{Academic Excellence Scholarship, awarded by ShanghaiTech}\hfill {2022, 2023, 2024} \\
-{Outstanding Graduate, awarded by HIT}\hfill {June 2021} \\
-{National Scholarship, awarded by HIT, Ministry of Education}\hfill {2020} \\
-{Outstanding Student, awarded by HIT}\hfill {2019, 2020} \\
-{Merit Student, awarded by HIT}\hfill {2019, 2020}
-\end{rSection}
-
-\begin{rSection}{Skills/Hobbies}
-\begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
-Programming &  Python, Pytorch, C/C++ \\
-% Machine Learning Tools & Pytorch, Tensorflow, Sklearn, Pandas, Numpy \\
-Hobbies & Hiking, Traveling and Photography \\
-\end{tabular}
-\end{rSection}
 \end{document}
