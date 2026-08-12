@@ -226,6 +226,11 @@ nav {
   object-fit : contain;
 }
 
+.home-wrapper .social-icon .fa-envelope {
+  color     : #333;
+  font-size : 22px;
+}
+
 .home-wrapper .social-icon .cv-link {
   gap : 4px;
 }
