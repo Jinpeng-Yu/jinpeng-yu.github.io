@@ -44,7 +44,7 @@
 
 \begin{rSection}{个人简述}
 本人（\href{https://jinpeng-yu.github.io/}{个人主页}）现任阿里巴巴集团千问事业部高级研究员、内容生成算法负责人，负责千问App多模态内容创作系统及图像、视频生成模型的研发与落地，并指导一支由 2 名正式员工和 7 名实习生组成的团队。在此之前，本人曾任小红书 AIGC 团队高级研究员，从事可控图像生成与多模态理解的研究工作。多篇成果发表于 IJCV、CVPR、ACM MM 等期刊及会议。\\
-本人当前研究内容聚焦于\textbf{实时可控视频生成}与\textbf{内容创作智能体系统}。
+本人当前研究内容聚焦于\textbf{实时可控视频生成}与\textbf{内容创作Agent系统}。
 \end{rSection}
 
 \vspace{-6pt}
@@ -52,7 +52,7 @@
 \begin{rSection}{工作经历}
 \hspace*{-1.5em}{\bf 阿里巴巴集团｜千问事业部} \hfill 2025/11-{\em 至今} \\
 {\bf 高级研究员、内容生成算法负责人} \\
-\textbf{主导\href{https://www.qianwen.com/}{千问App}多模态内容创作智能体系统及图像/视频生成模型的研发与落地。}带领 9 人团队（含 7 名实习生）攻克多项核心技术，落地多款产品{\em（数字人、AI剧场、AI生图）}。期间指导团队产出 6 篇高水平学术论文。\\[0.4em]
+\textbf{主导\href{https://www.qianwen.com/}{千问App}多模态内容创作Agent系统及图像/视频生成模型的研发与落地。}带领 9 人团队（含 7 名实习生）攻克多项核心技术，落地多款产品{\em（数字人、AI剧场、AI生图）}。期间指导团队产出 6 篇高水平学术论文。\\[0.4em]
 \hspace*{-1.5em}{\bf 小红书｜智能创作组} \hfill 2024/07-2025/11 \\
 {\bf 高级研究员}{\em（人才计划）} \\
 负责小红书\href{https://ad.xiaohongshu.com/}{聚光}、\href{https://www.53ai.com/news/neirongchuangzuo/2024090686590.html}{镜构}项目的可控图像生成与多模态内容理解技术的研发，落地多款爆款特效产品。期间指导产出 2 篇录用论文 \href{https://dl.acm.org/doi/10.1145/3805622.3810729}{[1]}\href{https://arxiv.org/pdf/2603.29469}{[2]}。\\[0.4em]
@@ -82,21 +82,28 @@
 
 \begin{rSection}{近期主要项目}
 \begin{rSubsection}{\hspace*{-1.5em}实时流式可交互数字人}{2025/11-至今}{产品落地：数字人；科研产出：\href{https://liveanimate.github.io/}{LiveAnimate}、\href{https://uniswap-av.github.io/}{UniSwap}、\href{https://rethinking-cfg-opd.github.io/}{PDM}}{千问App}
-\item {\bf 技术挑战：}
-\item {\bf 解决方案：}
-\item {\bf 效果：}
+\item {\bf 技术挑战：}如何让Diffusion类数字人系统在保证画质、身份一致性与音画同步的同时，实现实时、长时流式生成与低成本交互控制？
+\item {\bf 解决方案：}主导构建实时流式数字人生成技术体系。针对扩散模型推理延迟高、长时生成易产生误差累积的问题，通过块因果自回归架构与有界 KV Cache 实现增量式长视频生成，并结合少步扩散蒸馏、序列并行及算子优化，将视频生成速度提升至实时水平，同时保持长时身份与画质稳定性。针对交互控制成本高的问题，提出分支感知的在策略蒸馏方法，将逐帧稠密控制能力迁移至稀疏关键帧，支持姿态、深度与涂鸦等交互条件；进一步构建统一音视频身份替换模型，实现人物外观与音色的同步迁移，并保持原视频的动作、内容及音画时序。
+\item {\bf 效果：}实现 14B/22B 级视频生成模型的实时流式推理，最高达到 19.63 FPS，并在长时生成中保持身份、画质与音画同步稳定；支持姿态、深度与涂鸦等稀疏关键帧交互控制，视频蒸馏训练成本降低约 6 倍。
 \end{rSubsection}
 
-\begin{rSubsection}{\hspace*{-1.5em}高质量图像/视频生成智能体系统}{2025/11-至今}{产品落地：AI生图、AI剧场；科研产出：\textcolor{magenta}{AVA-Encoder}、\href{https://haozheh3.github.io/SearchGen/}{SearchGen}}{千问App}
-\item {\bf 核心问题：}
+\begin{rSubsection}{\hspace*{-1.5em}面向高质量图像/视频生成的创作Agent系统}{2025/11-至今}{产品落地：AI生图、AI剧场；科研产出：\href{https://huggingface.co/papers/2608.12313}{AVA-Encoder}、\href{https://haozheh3.github.io/SearchGen/}{SearchGen}}{千问App}
+\item {\bf 核心问题：}如何让创作Agent理解视频中的细粒度时空结构？如何让Agent在面对时效性、长尾及知识密集型需求时生成内容准确的图像？
 \item {\bf 解决方案：}
-\item {\bf 效果：}
+\begin{itemize}
+\setlength{\itemsep}{0em}
+\setlength{\topsep}{0em}
+\setlength{\parsep}{0em}
+\item {\bf 视频Agent：}由于LM自身局限性，现有视频创作Agent主要依赖文本描述进行规划，缺少能够从高质量视频数据中学习的结构化中间表征。主导设计面向Agent的 Encoder-Decoder 架构，将视频编码为Agent原生（Agent-Native）的结构化表征，使其能够理解和复用视频中的内容、运动与时序信息，提升规划模型（Planner）训练及视频复刻、编辑等下游任务的效果。
+\item {\bf 图像Agent：}针对生成模型难以覆盖时效性与长尾视觉知识、无差别检索又容易引入噪声的问题，设计搜索增强的图像生成Agent，使其能够识别生成模型的知识边界，自主判断是否需要搜索，并对外部图文信息进行检索、筛选与整合；进一步通过生成模型与搜索Agent的协同训练，持续拓展模型的知识边界，提升知识密集型图像生成的准确性。
+\end{itemize}
+\item {\bf 效果：}视频侧，AVA-Encoder 较最强外部基线方法提升 20.7 个百分点；在减少 74.3\% 系统提示词 Token 的同时，性能超过人工调优策略。图像侧，在固定 4B 生成模型上，SearchGen 将知识密集型图像生成总体得分由 25.0 提升至 31.8，并以 8B 搜索 Agent 达到与前沿推理模型相当的效果（31.8 vs. 31.2）。
 \end{rSubsection}
 
-\begin{rSubsection}{\hspace*{-1.5em}创作对话中的主动响应式推荐系统}{2025/11-至今}{产品落地：AI生图；科研产出：\href{https://huggingface.co/papers/2608.07565}{What to Edit Next}}{千问App}
-\item {\bf 效果：} 日均百万量级曝光，用户平均点击率（CTR）提升 32.7\%，图片取走率提升 16.32\%，人均对话轮次提升 39.9\%
-\item {\bf 核心问题：}
-\item {\bf 解决方案：}
+\begin{rSubsection}{\hspace*{-1.5em}创作对话中的主动响应式推荐系统}{2025/11-至今}{产品落地：AI生图；科研产出：\href{https://what-to-edit-next.github.io/}{What to Edit Next}}{千问App}
+\item {\bf 核心问题：}如何基于海量用户创作与对话数据，主动理解并延续用户创作意图，提升普通用户的创作效率、活跃度与留存？
+\item {\bf 解决方案：}主导设计并落地创作对话主动推荐系统，融合历史对话上下文、当前创作意图与生成结果，预测用户后续编辑需求，并生成可直接执行的编辑建议（PAA, People Also Ask）。基于海量线上数据归纳 60 余类创作意图，完成 Prompt Engineering、SFT 与 RLHF 三阶段架构迭代，从意图准确性、可执行性与点击吸引力等维度持续优化推荐效果。
+\item {\bf 效果：}日均百万量级曝光，用户平均点击率（CTR）提升 32.7\%，图片取走率提升 16.32\%，人均对话轮次提升 39.9\%
 \end{rSubsection}
 
 % \vspace{-6pt}
@@ -121,14 +128,14 @@
 {\small $^*$ 共同一作，$^\dagger$ 项目负责人；本人姓名以下划线标注。\par}
 
 \begin{rSubsection}{\hspace*{-1.5em}视频生成}{}{}{}
+\item \publink{https://huggingface.co/papers/2608.12313}{AVA-Encoder: Towards Agent-Native Video Representation Learning} \\
+Chuyue Li, \underline{\bf Jinpeng Yu$^\dagger$}, Haozhe Wang, Xueyun Tian, Zhijing Zhang, Bingnan Li, Shuqi Gu, Kan Ren, Jiaming Liu, and Ruihua Huang \\
+{\em Preprint}, Aug. 2026
 \item \publink{https://uniswap-av.github.io/}{UniSwap: Streaming Audio-Visual Identity Swapping for Talking Videos} \\
 Yuxuan Zhang, Haozhong Xiong, Jiayi Song, \underline{\bf Jinpeng Yu$^\dagger$}, Yang Shi, Jiaming Liu, Ruihua Huang, and Liwei Wang \\
 {\em Preprint}, Aug. 2026
 \item \publink{https://liveanimate.github.io/}{LiveAnimate: Stable Long-Form Streaming Human Animation in Real-Time} \\
-Yuxuan Zhang, Haozhong Xiong, Yubo Huang, Jiayi Song, \underline{\bf Jinpeng Yu$^\dagger$}, Jiaming Liu, Ruihua Huang, and Liwei Wang \\
-{\em Preprint}, Aug. 2026
-\item AVA-Encoder: Towards Agent-Native Video Representation Learning \\
-Chuyue Li, \underline{\bf Jinpeng Yu$^\dagger$}, Haozhe Wang, Xueyun Tian, Zhijing Zhang, Bingnan Li, Shuqi Gu, Kan Ren, Jiaming Liu, and Ruihua Huang \\
+Yuxuan Zhang, Haozhong Xiong, Yubo Huang, Jiayi Song, \underline{\bf Jinpeng Yu$^\dagger$}, Haofan Wang, Jiaming Liu, Ruihua Huang, and Liwei Wang \\
 {\em Preprint}, Aug. 2026
 \item \publink{https://rethinking-cfg-opd.github.io/}{Rethinking Classifier-Free Guidance in On-Policy Diffusion Distillation} \\
 Bingnan Li, Haozhe Wang, Haozhong Xiong, Fangtai Wu, \underline{\bf Jinpeng Yu$^\dagger$}, Yang Shi, Jiaming Liu, and Ruihua Huang \\
@@ -136,7 +143,7 @@ Bingnan Li, Haozhe Wang, Haozhong Xiong, Fangtai Wu, \underline{\bf Jinpeng Yu$^
 \end{rSubsection}
 
 \begin{rSubsection}{\hspace*{-1.5em}图像生成}{}{}{}
-\item \publink{https://huggingface.co/papers/2608.07565}{What to Edit Next: Visually Aligned Image-Editing Follow-Up Suggestions in Conversational Systems} \\
+\item \publink{https://what-to-edit-next.github.io/}{What to Edit Next: Visually Aligned Image-Editing Follow-Up Suggestions in Conversational Systems} \\
 Zhijing Zhang, \underline{\bf Jinpeng Yu$^\dagger$}, Xin Song, Bingnan Li, Chuyue Li, Changhui Du, Xiaolin Fang, Jiaming Liu, and Ruihua Huang \\
 {\em Preprint}, Aug. 2026
 \item \publink{https://haozheh3.github.io/SearchGen/}{Search Beyond What Can Be Taught: Evolving the Knowledge Boundary in Agentic Visual Generation} \\
